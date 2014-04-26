@@ -5,7 +5,7 @@ My News Scraper - Scrape news sites at demand for news articles
 
 # Example of usage
 
-´´´javascript
+```javascript
 // require the library
 var mns = require( 'mns' );
 
@@ -34,8 +34,7 @@ var scraper = mns({
     title : "a"
   }
 });
-
-´´´
+```
 
 # Disclaimer
 
