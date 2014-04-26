@@ -1,0 +1,31 @@
+{
+  "name": "mns",
+  "version": "0.1.0",
+  "description": "My News Scraper - Scrapes news sites for articles",
+  "main": "lib/mns.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --ui bdd test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anmonteiro/mns.git"
+  },
+  "devDependencies": {
+    "chai": "1.9.x",
+    "nock": "0.27.x",
+    "supertest": "0.10.x"
+  },
+  "dependencies": {
+    "cheerio": "0.14.x",
+    "request": "2.34.x"
+  },
+  "author": "António Nuno Monteiro <anmonteiro@gmail.com> (http://anmonteiro.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anmonteiro/mns/issues"
+  },
+  "homepage": "https://github.com/anmonteiro/mns"
+}

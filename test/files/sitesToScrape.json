@@ -1,0 +1,52 @@
+{
+  "hn" : {
+  	"name" : "Hacker News",
+    "url" : "http://news.ycombinator.com/news",
+    "type" : "text/html",
+    "listSelector" : "td:not([align]).title",
+    "articleSelector" : {
+      "url" : {
+        "selector" : "a",
+        "attr" : "href"
+      },
+      "src" : "span",
+      "title" : "a"
+    }
+  },
+  "reddit-js" : {
+  	"name" : "Reddit /r/javascript",
+  	"url" : "http://www.reddit.com/r/javascript/.json",
+    "type" : "application/json",
+    "listSelector" : "data.children",
+    "articleSelector" : {
+      "url" : "data.url",
+      "src" : "data.domain",
+      "title" : "data.title"
+    }
+  },
+  "reddit-node" : {
+  	"name" : "Reddit /r/node",
+  	"url" : "http://www.reddit.com/r/node/.json",
+    "type" : "application/json",
+    "listSelector" : "data.children",
+    "articleSelector" : {
+      "url" : "data.url",
+      "src" : "data.domain",
+      "title" : "data.title"
+    }
+  },
+  "echojs" : {
+  	"name" : "EchoJS",
+  	"url" : "http://www.echojs.com",
+    "type" : "text/html",
+    "listSelector" : "#newslist > article",
+    "articleSelector" : {
+      "url" : {
+        "selector" : "h2 > a",
+        "attr" : "href"
+      },
+      "src" : "address",
+      "title" : "h2 > a"
+    }
+  }
+}
