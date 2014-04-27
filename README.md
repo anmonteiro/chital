@@ -34,6 +34,17 @@ var scraper = mns({
     title : "a"
   }
 });
+
+// execute the scraping itself
+scraper.execute(function( err, items ) {
+  if ( err ) {
+    return console.log( err );
+  }
+  // do something with the items array.
+  // every item in the array has the properties you
+  // passed in the articleSelector object previously
+});
+
 ```
 
 ## Disclaimer
