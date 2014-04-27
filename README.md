@@ -42,7 +42,9 @@ scraper.execute(function( err, items ) {
   }
   // do something with the items array.
   // every item in the array has the properties you
-  // passed in the articleSelector object previously
+  // passed in the articleSelector object previously.
+  // In this case, this means you'll get an object with
+  // properties url, title and src.
 });
 
 ```
