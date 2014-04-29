@@ -51,4 +51,11 @@ scraper.execute(function( err, items ) {
 
 ## Disclaimer
 
-This is still a work in progress, under active development. If you have any question, feel free to open an issue on this repository.
+This is still a work in progress, under active development. At the moment, the library is in alpha stage, providing very basic functionality. If you have any question, feel free to open an issue on this repository.
+
+## ToDos
+
+- [ ] Cleanup structure - e.g. parseArticleElement function is only used for HTML parser but is exposed even if we are scraping a JSON API;
+- [ ] Make functions that are supposed to be internal "private" (inside a closure);
+- [ ] Add support for default arguments in the constructor function;
+- [ ] Test / Handle scraping escaped characters
