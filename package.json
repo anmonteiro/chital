@@ -16,7 +16,8 @@
   "devDependencies": {
     "chai": "1.9.x",
     "nock": "0.27.x",
-    "supertest": "0.10.x"
+    "supertest": "0.10.x",
+    "mocha" : "1.18.x",
   },
   "dependencies": {
     "cheerio": "0.14.x",
