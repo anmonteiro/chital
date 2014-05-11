@@ -1,4 +1,4 @@
-# mns
+mns
 ===
 [![Build Status](https://travis-ci.org/anmonteiro/mns.svg?branch=master)](https://travis-ci.org/anmonteiro/mns)
 
