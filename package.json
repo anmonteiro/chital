@@ -1,6 +1,6 @@
 {
   "name": "mns",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "My News Scraper - Scrapes news sites for articles",
   "main": "lib/mns.js",
   "directories": {
