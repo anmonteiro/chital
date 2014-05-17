@@ -224,6 +224,29 @@ describe('mns function execute', function() {
   	      done();
   	    });
       });
+
+      it('when special_characters_echojs.html is the response', function( done ) {
+        api = nock( 'http://www.echojs.com' )
+          .get( '/' )
+          .replyWithFile( 200, __dirname + '/files/special_characters_echojs.html' );
+
+        scraper = mns( echojs );
+
+        scraper.execute(function( err, items ) {
+          expect( err ).to.be.null;
+          expect( items ).to.be.ok;
+
+          expect( items ).to.have.length( 30 );
+
+          for (var i = 0; i < items.length; i++) {
+            (function( idx ) {
+              expect( items[ idx ] ).to.have.keys( Object.keys( echojs.articleSelector ) );
+            })( i );
+          }
+
+          done();
+        });
+      });
     });
   });
 
