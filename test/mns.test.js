@@ -74,6 +74,24 @@ describe('an mns object', function() {
 
   });
 
+  it('should not accept a type which it is unable to parse', function() {
+    expect(function() {
+      scraper = mns({
+        url : "http://news.ycombinator.com/news",
+          type : "text/plain",
+          listSelector : "td:not([align]).title",
+          articleSelector : {
+            url : {
+              selector : "a",
+              attr : "href"
+            },
+            src : "span",
+            title : "a"
+          }
+      });
+    }).to.throw('Invalid type!');
+  });
+
   it('should have mandatory properties', function() {
     scraper = mns( reddit );
     expect( scraper ).to.contain.keys( 'type', 'url', 'listSelector', 'articleSelector' );
