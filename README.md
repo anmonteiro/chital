@@ -3,7 +3,7 @@ mns
 [![Build Status](https://travis-ci.org/anmonteiro/mns.svg?branch=master)](https://travis-ci.org/anmonteiro/mns)
 [![NPM version](https://badge.fury.io/js/mns.svg)](http://badge.fury.io/js/mns)
 
-My News Scraper - Scrape news sites at demand for news articles
+My News Scraper - Scrape sites for groups of articles
 
 ## Example of usage
 
