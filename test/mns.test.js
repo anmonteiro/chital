@@ -4,7 +4,7 @@ var chai = require( 'chai' ),
   cheerio = require( 'cheerio' ),
   fs = require( 'fs' );
 
-var mns = require( '../lib/mns' );
+var mns = require( '../lib' );
 var sites = fs.readFileSync( __dirname + '/files/sitesToScrape.json' );
 
 sites = JSON.parse( sites );

@@ -2,7 +2,7 @@
   "name": "mns",
   "version": "0.1.1",
   "description": "My News Scraper - Scrape sites for groups of articles",
-  "main": "lib/mns.js",
+  "main": "./lib",
   "directories": {
     "test": "test"
   },
@@ -22,6 +22,9 @@
   "dependencies": {
     "cheerio": "0.14.x",
     "request": "2.34.x"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
   },
   "author": "António Nuno Monteiro <anmonteiro@gmail.com> (http://anmonteiro.github.io/)",
   "license": "MIT",
