@@ -2,6 +2,7 @@ mns
 ===
 [![Build Status](https://travis-ci.org/anmonteiro/mns.svg?branch=master)](https://travis-ci.org/anmonteiro/mns)
 [![NPM version](https://badge.fury.io/js/mns.svg)](http://badge.fury.io/js/mns)
+[![Coverage Status](https://img.shields.io/coveralls/anmonteiro/mns.svg)](https://coveralls.io/r/anmonteiro/mns)
 
 My News Scraper - Scrape sites for groups of articles
 
