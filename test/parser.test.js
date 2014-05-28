@@ -19,3 +19,14 @@ var reddit = sites[ 'reddit-js' ],
 
 invalid_echojs = JSON.parse( invalid_echojs );
 var scraper;
+
+
+describe('JSON parser', function() {
+  it('', function() {
+    
+  });
+});
+
+describe('HTML parser', function() {
+
+});
