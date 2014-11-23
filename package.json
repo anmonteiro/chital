@@ -24,7 +24,7 @@
     "request": "^2.48.0"
   },
   "engines": {
-    "node": ">= 0.6.0"
+    "node": ">= 0.10.0"
   },
   "author": "António Nuno Monteiro <anmonteiro@gmail.com> (http://anmonteiro.github.io/)",
   "license": "MIT",
