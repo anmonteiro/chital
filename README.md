@@ -18,23 +18,25 @@ var mns = require( 'mns' );
 var scraper = mns({
   url : "http://news.ycombinator.com/news",
   type : "text/html",
-  // a CSS selector that gathers every article you want to scrape
-  listSelector : "td:not([align]).title",
-  // a CSS selector for each property you want to gather from
-  // the article listing (relative to the listSelector)
-  articleSelector : {
-  	// you can pass an object with keys
-  	// selector and attr. In this case, it specifies that
-  	// you want to gather the href attribute from the "a"
-  	// selector
-    url : {
-      selector : "a",
-      attr : "href"
-    },
-    // or simply a CSS selector that's relative to the
-    // listSelector which you specified before
-    src : "span",
-    title : "a"
+  selectors : {
+    // a CSS selector that gathers every article you want to scrape
+    list : "td:not([align]).title",
+    // a CSS selector for each property you want to gather from
+    // the article listing (relative to the listSelector)
+    article : {
+      // you can pass an object with keys
+      // selector and attr. In this case, it specifies that
+      // you want to gather the href attribute from the "a"
+      // selector
+      url : {
+        selector : "a",
+        attr : "href"
+      },
+      // or simply a CSS selector that's relative to the
+      // listSelector which you specified before
+      src : "span",
+      title : "a"
+    }
   }
 });
 
@@ -45,12 +47,14 @@ scraper.execute(function( err, items ) {
   }
   // do something with the items array.
   // every item in the array has the properties you
-  // passed in the articleSelector object previously.
+  // passed in the article selector object previously.
   // In this case, this means you'll get an object with
   // properties url, title and src.
 });
 
 ```
+
+Some website configurations reside in test/files/sitesToScrape.json
 
 ## Disclaimer
 
