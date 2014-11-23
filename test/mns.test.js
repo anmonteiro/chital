@@ -4,7 +4,7 @@ var chai = require( 'chai' ),
   cheerio = require( 'cheerio' ),
   fs = require( 'fs' );
 
-var mns = require( '../lib' );
+var mns = require( '../' );
 var sites = fs.readFileSync( __dirname + '/files/sitesToScrape.json' );
 
 sites = JSON.parse( sites );
@@ -19,9 +19,9 @@ var reddit = sites[ 'reddit-js' ],
   redditNode = sites[ 'reddit-node' ];
 
 invalid_echojs = JSON.parse( invalid_echojs );
-var scraper;
 
 describe('calling mns without new operator', function() {
+  var scraper;
 
   afterEach(function() {
     scraper = null;
@@ -40,6 +40,7 @@ describe('calling mns without new operator', function() {
 });
 
 describe('an mns object', function() {
+  var scraper;
 
   afterEach(function() {
     scraper = null;
@@ -76,16 +77,18 @@ describe('an mns object', function() {
   it('should not accept a type which it is unable to parse', function() {
     expect(function() {
       scraper = mns({
-        url : "http://news.ycombinator.com/news",
+        url : "foo.bar",
           type : "text/plain",
-          listSelector : "td:not([align]).title",
-          articleSelector : {
-            url : {
-              selector : "a",
-              attr : "href"
-            },
-            src : "span",
-            title : "a"
+          selectors : {
+            list : 'baz',
+            article : {
+              url : {
+                selector : "a",
+                attr : "href"
+              },
+              src : "span",
+              title : "a"
+            }
           }
       });
     }).to.throw('Invalid type!');
@@ -93,97 +96,17 @@ describe('an mns object', function() {
 
   it('should have mandatory properties', function() {
     scraper = mns( reddit );
-    expect( scraper ).to.contain.keys( 'type', 'url', 'listSelector', 'articleSelector' );
-    expect( scraper.articleSelector ).to.contain.keys( 'url', 'src', 'title' );
+
+    expect( scraper ).to.contain.keys( 'type', 'url', 'selectors' );
+    expect( scraper.selectors ).to.contain.keys( 'list', 'article' );
+    expect( scraper.selectors.article ).to.contain.keys( 'url', 'src', 'title' );
   });
 
-  /*it('should fallback to default properties', function () {
-    scraper = mns();
-    expect( scraper ).to.contain.keys( 'type', 'url', 'groupSelector', 'articleSelector' );
-  });*/
-
-  it('should match passed options', function() {
-    scraper = mns( hn );
-    expect( scraper ).to.contain.keys( 'url', 'type', 'listSelector', 'articleSelector' );
-    expect( scraper.url ).to.equal( hn.url );
-    expect( scraper.type ).to.equal( hn.type );
-    expect( scraper.listSelector ).to.eql( hn.listSelector );
-    expect( scraper.articleSelector ).to.eql( hn.articleSelector );
-
-    scraper = mns( echojs );
-    expect( scraper ).to.contain.keys( 'url', 'type', 'listSelector', 'articleSelector' );
-    expect( scraper.url ).to.equal( echojs.url );
-    expect( scraper.type ).to.equal( echojs.type );
-    expect( scraper.listSelector ).to.eql( echojs.listSelector );
-    expect( scraper.articleSelector ).to.eql( echojs.articleSelector );
-
-  });
-
-});
-
-describe('parse article element function', function () {
-  var el,
-    invalidEl,
-    obj,
-    $,
-    scraper;
-
-  afterEach(function() {
-    el = null;
-    invalidEl = null;
-    obj = null;
-  });
-
-  it('should parse one DOM element with the article link into an object', function () {
-    el = [
-      '<td class="title"><a href="http://www.buildyourownlisp.com/">',
-      'Learn C and build your own programming language</a>',
-      '<span class="comhead"> (buildyourownlisp.com) </span></td>'
-    ].join( '' );
-    obj = {
-      title : 'Learn C and build your own programming language',
-      url: 'http://www.buildyourownlisp.com/',
-      src: ' (buildyourownlisp.com) ',
-    };
-    $ = cheerio.load(el);
-
-    scraper = mns( hn );
-    scraper.parseArticleElement($(el), function(err, art) {
-      expect(err).to.be.null;
-      expect(err).not.to.be.undefined;
-      expect(art).to.be.ok;
-      expect(art).to.be.an('object');
-      expect(art).to.not.be.empty;
-      expect(art).to.eql(obj);
-    });
-  });
-
-  it('should parse titles with special characters', function () {
-    el = [
-      '<td class="title"><a href="http://www.foo.tag/">',
-      'The &lt;foo&gt; tag</a>',
-      '<span class="comhead"> (foo.tag) </span></td>'
-    ].join( '' );
-    obj = {
-      title : 'The &lt;foo&gt; tag',
-      url: 'http://www.foo.tag/',
-      src: ' (foo.tag) ',
-    };
-    $ = cheerio.load(el);
-    scraper = mns( hn );
-    scraper.parseArticleElement($(el), function(err, art) {
-      expect(err).to.be.null;
-      expect(err).not.to.be.undefined;
-      expect(art).to.be.ok;
-      expect(art).to.be.an('object');
-      expect(art).to.not.be.empty;
-      expect(art).to.eql(obj);
-    });
-  });
 });
 
 describe('mns function execute', function() {
-  var api;
+  var api,
+    scraper;
 
   describe('with html parser', function() {
     afterEach(function() {
@@ -207,7 +130,7 @@ describe('mns function execute', function() {
 
   	      for (var i = 0; i < 30; i++) {
   	        (function( idx ) {
-  	          expect( items[ idx ] ).to.have.keys( Object.keys( hn.articleSelector ) );
+  	          expect( items[ idx ] ).to.have.keys( Object.keys( hn.selectors.article ) );
   	        })( i );
   	      }
 
@@ -230,7 +153,7 @@ describe('mns function execute', function() {
 
   	      for (var i = 0; i < items.length; i++) {
   	        (function( idx ) {
-  	          expect( items[ idx ] ).to.have.keys( Object.keys( echojs.articleSelector ) );
+  	          expect( items[ idx ] ).to.have.keys( Object.keys( echojs.selectors.article ) );
   	        })( i );
   	      }
 
@@ -253,7 +176,7 @@ describe('mns function execute', function() {
 
           for (var i = 0; i < items.length; i++) {
             (function( idx ) {
-              expect( items[ idx ] ).to.have.keys( Object.keys( echojs.articleSelector ) );
+              expect( items[ idx ] ).to.have.keys( Object.keys( echojs.selectors.article ) );
             })( i );
           }
 
@@ -280,7 +203,7 @@ describe('mns function execute', function() {
 
           for (var i = 0; i < items.length; i++) {
             (function( idx ) {
-              expect( items[ idx ] ).to.have.keys( Object.keys( reddit.articleSelector ) );
+              expect( items[ idx ] ).to.have.keys( Object.keys( reddit.selectors.article ) );
             })( i );
           }
           done();
@@ -302,7 +225,7 @@ describe('mns function execute', function() {
 
           for (var i = 0; i < items.length; i++) {
             (function( idx ) {
-              expect( items[ idx ] ).to.have.keys( Object.keys( redditNode.articleSelector ) );
+              expect( items[ idx ] ).to.have.keys( Object.keys( redditNode.selectors.article ) );
             })( i );
           }
           done();

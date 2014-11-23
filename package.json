@@ -1,8 +1,8 @@
 {
   "name": "mns",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "My News Scraper - Scrape sites for groups of articles",
-  "main": "./lib",
+  "main": "./",
   "directories": {
     "test": "test"
   },
@@ -14,14 +14,14 @@
     "url": "https://github.com/anmonteiro/mns.git"
   },
   "devDependencies": {
-    "chai": "1.9.x",
-    "nock": "0.27.x",
-    "supertest": "0.10.x",
-    "mocha" : "1.18.x"
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1",
+    "nock": "^0.50.0",
+    "supertest": "^0.15.0"
   },
   "dependencies": {
-    "cheerio": "0.14.x",
-    "request": "2.34.x"
+    "cheerio": "^0.18.0",
+    "request": "^2.48.0"
   },
   "engines": {
     "node": ">= 0.6.0"
