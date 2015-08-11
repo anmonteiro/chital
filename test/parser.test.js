@@ -22,7 +22,8 @@ invalid_echojs = JSON.parse( invalid_echojs );
 
 
 describe('HTML parser', function() {
-  var parser = scraper( constants.mime.HTML );
+  var parser = scraper( constants.mime.HTML, hn.url);
+
   describe('parse article element function', function () {
     var el,
       invalidEl,
@@ -33,6 +34,7 @@ describe('HTML parser', function() {
       el = null;
       invalidEl = null;
       obj = null;
+      $ = null;
     });
 
     it('should parse one DOM element with the article link into an object', function () {
@@ -48,6 +50,28 @@ describe('HTML parser', function() {
       };
       $ = cheerio.load(el);
 
+      parser.__test_only__.parseElement($(el), hn.selectors.article, function(err, art) {
+        expect(err).to.be.null;
+        expect(err).not.to.be.undefined;
+        expect(art).to.be.ok;
+        expect(art).to.be.an('object');
+        expect(art).to.not.be.empty;
+        expect(art).to.eql(obj);
+      });
+    });
+
+    it('should resolve relative URLs', function () {
+      el = [
+        '<td class="title"><a href="item?id=10032299">Inside link</a>',
+        '<span class="comhead"> (streetwise.co) </span></td>'
+      ].join( '' );
+      obj = {
+        title : 'Inside link',
+        url: 'http://news.ycombinator.com/item?id=10032299',
+        src: ' (streetwise.co) ',
+      };
+      $ = cheerio.load(el);
+      console.log(parser);
       parser.__test_only__.parseElement($(el), hn.selectors.article, function(err, art) {
         expect(err).to.be.null;
         expect(err).not.to.be.undefined;
@@ -101,7 +125,7 @@ describe('JSON parser', function() {
           url: "http://pasm.pis.to/",
           src: "pasm.pis.to",
         };
-      
+
       parser.__test_only__.parseElement( el, reddit.selectors.article, function(err, art) {
         expect(err).to.be.null;
         expect(err).not.to.be.undefined;
@@ -113,4 +137,3 @@ describe('JSON parser', function() {
     });
   });
 });
-

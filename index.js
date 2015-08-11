@@ -37,7 +37,7 @@ var mns = (function() {
     var newScraper = Object.create({
       execute : function( callback ) {
         var self = this,
-          parserEngine = parser( self.type );
+          parserEngine = parser( self.type, options.url );
 
         scrape( self.url, function( err, body ) {
           if ( err ) {
@@ -52,15 +52,23 @@ var mns = (function() {
           });
         });
       }
+    }, {
+      'type' : {
+        value : options.type,
+        enumerable : true
+      },
+      'url' : {
+        value : options.url,
+        enumerable : true
+      },
+      'selectors' : {
+        value : options.selectors,
+        enumerable : true
+      }
     });
-
-    newScraper.type = options.type;
-    newScraper.url = options.url;
-    newScraper.selectors = options.selectors;
 
     return newScraper;
   };
 })();
 
 module.exports = mns;
-
