@@ -71,7 +71,7 @@ describe('HTML parser', function() {
         src: ' (streetwise.co) ',
       };
       $ = cheerio.load(el);
-      console.log(parser);
+
       parser.__test_only__.parseElement($(el), hn.selectors.article, function(err, art) {
         expect(err).to.be.null;
         expect(err).not.to.be.undefined;
