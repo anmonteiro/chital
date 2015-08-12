@@ -1,7 +1,7 @@
 {
-  "name": "mns",
-  "version": "0.2.0",
-  "description": "My News Scraper - Scrape sites for groups of articles",
+  "name": "chital",
+  "version": "0.3.0",
+  "description": "chital - Scrape web pages for groups of articles",
   "main": "./",
   "directories": {
     "test": "test"

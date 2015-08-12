@@ -1,21 +1,21 @@
-mns
+chital
 ===
-[![Build Status](https://travis-ci.org/anmonteiro/mns.svg?branch=master)](https://travis-ci.org/anmonteiro/mns)
+[![Build Status](https://travis-ci.org/anmonteiro/chital.svg?branch=master)](https://travis-ci.org/anmonteiro/chital)
 [![NPM version](https://badge.fury.io/js/mns.svg)](http://badge.fury.io/js/mns)
-[![Coverage Status](https://img.shields.io/coveralls/anmonteiro/mns.svg)](https://coveralls.io/r/anmonteiro/mns?branch=master)
+[![Coverage Status](https://coveralls.io/repos/anmonteiro/chital/badge.svg?branch=master&service=github)](https://coveralls.io/github/anmonteiro/chital?branch=master)
 
-My News Scraper - Scrape sites for groups of articles
+Scrape web pages for groups of articles
 
 ## Example of usage
 
 ```javascript
 // require the library
-var mns = require( 'mns' );
+var chital = require( 'chital' );
 
 // initialize the scraper with the options for the website
 // you want to get news from.
 // example for Hacker News
-var scraper = mns({
+var scraper = chital({
   url : "http://news.ycombinator.com/news",
   type : "text/html",
   selectors : {
@@ -59,4 +59,3 @@ Some website configurations reside in test/files/sitesToScrape.json
 ## Disclaimer
 
 This is still a work in progress, under active development. At the moment, the library is in alpha stage, providing very basic functionality. If you have any question, feel free to open an issue on this repository.
-
