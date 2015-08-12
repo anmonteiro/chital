@@ -1,7 +1,7 @@
 chital
 ===
 [![Build Status](https://travis-ci.org/anmonteiro/chital.svg?branch=master)](https://travis-ci.org/anmonteiro/chital)
-[![NPM version](https://badge.fury.io/js/mns.svg)](http://badge.fury.io/js/mns)
+[![npm version](https://badge.fury.io/js/chital.svg)](http://badge.fury.io/js/chital)
 [![Coverage Status](https://coveralls.io/repos/anmonteiro/chital/badge.svg?branch=master&service=github)](https://coveralls.io/github/anmonteiro/chital?branch=master)
 
 Scrape web pages for groups of articles
