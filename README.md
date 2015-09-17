@@ -59,3 +59,9 @@ Some website configurations reside in test/files/sitesToScrape.json
 ## Disclaimer
 
 This is still a work in progress, under active development. At the moment, the library is in alpha stage, providing very basic functionality. If you have any question, feel free to open an issue on this repository.
+
+## License
+
+Copyright (c) 2014 António Nuno Monteiro
+
+This work is distributed under the MIT license. For more information refer to the [LICENSE](./LICENSE) file.
