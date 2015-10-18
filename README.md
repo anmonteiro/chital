@@ -1,8 +1,6 @@
-chital
+chital [![Build Status](https://travis-ci.org/anmonteiro/chital.svg?branch=master)](https://travis-ci.org/anmonteiro/chital) [![npm version](https://badge.fury.io/js/chital.svg)](http://badge.fury.io/js/chital) [![Coverage Status](https://coveralls.io/repos/anmonteiro/chital/badge.svg?branch=master&service=github)](https://coveralls.io/github/anmonteiro/chital?branch=master)
 ===
-[![Build Status](https://travis-ci.org/anmonteiro/chital.svg?branch=master)](https://travis-ci.org/anmonteiro/chital)
-[![npm version](https://badge.fury.io/js/chital.svg)](http://badge.fury.io/js/chital)
-[![Coverage Status](https://coveralls.io/repos/anmonteiro/chital/badge.svg?branch=master&service=github)](https://coveralls.io/github/anmonteiro/chital?branch=master)
+[![NPM](https://nodei.co/npm/chital.png?downloads=true&stars=true)](https://nodei.co/npm/chital/)
 
 Scrape web pages for groups of articles
 
