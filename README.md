@@ -1,4 +1,4 @@
-chital [![Build Status](https://travis-ci.org/anmonteiro/chital.svg?branch=master)](https://travis-ci.org/anmonteiro/chital) [![npm version](https://badge.fury.io/js/chital.svg)](http://badge.fury.io/js/chital) [![Coverage Status](https://coveralls.io/repos/anmonteiro/chital/badge.svg?branch=master&service=github)](https://coveralls.io/github/anmonteiro/chital?branch=master)
+chital [![Build Status](https://travis-ci.org/anmonteiro/chital.svg?branch=master)](https://travis-ci.org/anmonteiro/chital) [![npm version](https://badge.fury.io/js/chital.svg)](http://badge.fury.io/js/chital) [![Coverage Status](https://coveralls.io/repos/anmonteiro/chital/badge.svg?branch=master&service=github)](https://coveralls.io/github/anmonteiro/chital?branch=master) [![Dependency Status](https://david-dm.org/anmonteiro/chital.svg)](https://david-dm.org/anmonteiro/chital)
 ===
 [![NPM](https://nodei.co/npm/chital.png?downloads=true&stars=true)](https://nodei.co/npm/chital/)
 
