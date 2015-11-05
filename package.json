@@ -1,6 +1,6 @@
 {
   "name": "chital",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "chital - Scrape web pages for groups of articles",
   "main": "./",
   "directories": {
@@ -14,17 +14,17 @@
     "url": "https://github.com/anmonteiro/mns.git"
   },
   "devDependencies": {
-    "chai": "^1.10.0",
-    "coveralls": "^2.11.2",
-    "istanbul": "^0.3.17",
-    "mocha": "^2.0.1",
-    "mocha-lcov-reporter": "0.0.1",
-    "nock": "^0.50.0",
-    "supertest": "^0.15.0"
+    "chai": ">=3.4.x",
+    "coveralls": "^2.11.4",
+    "istanbul": ">=0.4.0",
+    "mocha": ">=2.3.3",
+    "mocha-lcov-reporter": ">=1.0.0",
+    "nock": ">=2.17.0",
+    "supertest": ">=1.1.0"
   },
   "dependencies": {
     "cheerio": "^0.19.0",
-    "request": "^2.60.0"
+    "request": ">=2.65.0"
   },
   "engines": {
     "node": ">= 0.10.0"

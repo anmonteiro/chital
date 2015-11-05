@@ -1,10 +1,10 @@
 /**
-  * My News Scraper (MNS)
+  * Chital
   *
   */
 
 var request = require( 'request' ),
-  parser = require( './lib/parser' );
+  parser = require( './lib/parser' ),
   utils = require( './lib/utils' ),
   constants = require( './lib/constants' );
 
@@ -12,14 +12,14 @@ var mns = (function() {
 
   var scrape = function( url, callback ) {
     request( url, function( error, res, body ) {
-      if ( !error && res.statusCode == constants.httpCodes.OK ) {
+      if ( !error && res.statusCode === constants.httpCodes.OK ) {
         return callback( error, body );
       }
 
       error = error || new Error( '404' );
       return callback( error, body );
-    })
-  }
+    });
+  };
 
   return function mnsFactory( options ) {
     // An options argument is mandatory, so we'll throw
