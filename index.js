@@ -8,7 +8,7 @@ var request = require( 'request' ),
   utils = require( './lib/utils' ),
   constants = require( './lib/constants' );
 
-var mns = (function() {
+var chital = (function() {
 
   var scrape = function( url, callback ) {
     request( url, function( error, res, body ) {
@@ -21,7 +21,7 @@ var mns = (function() {
     });
   };
 
-  return function mnsFactory( options ) {
+  return function chitalFactory( options ) {
     // An options argument is mandatory, so we'll throw
     // an error if it is not passed or if it's not an object
     if ( !utils.isObj( options ) ) {
@@ -71,4 +71,4 @@ var mns = (function() {
   };
 })();
 
-module.exports = mns;
+module.exports = chital;
