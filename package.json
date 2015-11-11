@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anmonteiro/mns.git"
+    "url": "https://github.com/anmonteiro/chital.git"
   },
   "devDependencies": {
     "chai": ">=3.4.x",
@@ -32,7 +32,7 @@
   "author": "António Nuno Monteiro <anmonteiro@gmail.com> (http://anmonteiro.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anmonteiro/mns/issues"
+    "url": "https://github.com/anmonteiro/chital/issues"
   },
-  "homepage": "https://github.com/anmonteiro/mns"
+  "homepage": "https://github.com/anmonteiro/chital"
 }
