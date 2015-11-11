@@ -3,13 +3,14 @@ REPORTER = spec
 MOCHA = ./node_modules/mocha/bin/mocha
 ISTANBUL = ./node_modules/.bin/istanbul
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
-COVERAGE_REPORT = ./coverage/lcov.info
+COVERAGE_DIR = ./coverage
+COVERAGE_REPORT = $(COVERAGE_DIR)/lcov.info
 
 test: test-mocha
 
 test-mocha:
 	@NODE_ENV=test $(MOCHA) \
-	    --timeout 200 \
+	  --timeout 200 \
 		--reporter $(REPORTER) \
 		$(TESTS)
 
@@ -24,4 +25,4 @@ coveralls:
 	cat $(COVERAGE_REPORT) | $(COVERALLS)
 
 clean:
-	rm -rf ./coverage
+	rm -rf $(COVERAGE_DIR)
